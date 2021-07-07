@@ -22,3 +22,16 @@ Resources:
           Properties:
             Path: /hello
             Method: GET
+  MyApiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: MyApiFunction
+      Handler: my-api
+      Runtime: go1.x
+      Tracing: Active
+      Events:
+        CatchAll:
+          Type: Api
+          Properties:
+            Path: /api
+            Method: GET
